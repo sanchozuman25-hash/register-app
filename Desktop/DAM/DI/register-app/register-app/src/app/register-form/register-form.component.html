@@ -1,0 +1,56 @@
+<form (ngSubmit)="registrar()" #form="ngForm">
+  <h2>Registro</h2>
+
+  <label>Nombre
+    <input type="text" name="nombre" [(ngModel)]="nombre" required>
+  </label>
+
+  <label>Apellidos
+    <input type="text" name="apellidos" [(ngModel)]="apellidos" required>
+  </label>
+
+  <label>NIF
+    <input type="text" name="nif" [(ngModel)]="nif" required>
+  </label>
+
+  <label>Email
+    <input type="email" name="email" [(ngModel)]="email" required>
+  </label>
+
+  <label>Teléfono
+    <input type="tel" name="telefono" [(ngModel)]="telefono" required>
+  </label>
+
+  <fieldset>
+    <legend>Sexo</legend>
+    <label><input type="radio" name="sexo" value="Hombre" [(ngModel)]="sexo"> Hombre</label>
+    <label><input type="radio" name="sexo" value="Mujer" [(ngModel)]="sexo"> Mujer</label>
+    <label><input type="radio" name="sexo" value="Otro" [(ngModel)]="sexo"> Otro</label>
+  </fieldset>
+
+  <label>¿Cómo conociste la página?
+    <select name="origen" [(ngModel)]="origen" required>
+      <option value="" disabled>Selecciona una opción</option>
+      <option value="Buscando en Google">Buscando en Google</option>
+      <option value="A través de un amigo">A través de un amigo</option>
+      <option value="Por mi profesor">Por mi profesor</option>
+    </select>
+  </label>
+
+  <label>Contraseña
+    <input type="password" name="password" [(ngModel)]="password" required>
+  </label>
+
+  <label>Confirmar contraseña
+    <input type="password" name="confirmPassword" [(ngModel)]="confirmPassword" required>
+  </label>
+
+  <label>
+    <input type="checkbox" name="aceptaTerminos" [(ngModel)]="aceptaTerminos" required>
+    Acepto los términos y condiciones
+  </label>
+
+  <button type="submit" [disabled]="!aceptaTerminos || password !== confirmPassword">
+    Registro
+  </button>
+</form>
